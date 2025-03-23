@@ -1,31 +1,28 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="ru">
 
 <head>
 	<meta charset="UTF-8">
-	<link rel="icon" href="/favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Vite App</title>
+	<title>Мой сайт</title>
+	<link rel="icon" href="/favicon.ico">
 </head>
 
 <body>
 	<div id="app"></div>
 	<script type="module" src="/src/main.js"></script>
-
-	<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="SevilyaFoodBot"
-		data-size="large" data-onauth="onTelegramAuth" data-request-access="write"></script>
-	<script type="text/javascript">
-		function onTelegramAuth(user) {
-			// Сохраняем данные в localStorage
-			localStorage.setItem("tg_user", JSON.stringify(user));
-
-			// Логируем в консоль (можно убрать)
-			console.log("Авторизован:", user);
-
-			// Перезагружаем страницу, чтобы Vue обновился
-			location.reload();
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			background-image: url(/public/img/background.jpg);
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+			height: 100vh;
 		}
-	</script>
+	</style>
 </body>
 
 </html>
