@@ -9,11 +9,13 @@ interface Dish {
   image_url: string;
 }
 
+const url = "https://9f06-77-238-232-197.ngrok-free.app"
+
 const dishes = ref<Dish[]>([]);
 
 const fetchDishes = async () => {
   try {
-    const response = await axios.get("http://localhost:8080/dishes");
+    const response = await axios.get(url + "/dishes");
     dishes.value = response.data;
   } catch (error) {
     console.error("Ошибка загрузки блюд", error);
@@ -30,7 +32,7 @@ const orderDish = async (dishId: number) => {
   }
 
   try {
-    await axios.post("http://localhost:8080/orders", {
+    await axios.post(url + "/orders", {
       user_id: user.id,
       dish_id: dishId,
     });
