@@ -56,25 +56,22 @@
 	  const authError = ref<boolean>(false);
 	  const isAuthenticated = ref<boolean>(false);
   
-	  const getDishes = async () => {
-		try {
-		  const response = await axios.get('https://65eb-77-238-232-197.ngrok-free.app/dishes');
-		  dishes.value = response.data;
-		} catch (error) {
-		  console.error('Ошибка при загрузке меню:', error);
-		}
-	  };
+	  dishes.value = [
+	  {name: "Бутерброд", price: "1 поцелуй💋"},
+	{name: "Пельмени", price: "2 поцелуя💋💋"},
+	{name: "Салат греческий", price: "1 свидание👫"},]
+
+
   
 	  const loginUser = async () => {
 		try {
-		  const response = await axios.post('https://65eb-77-238-232-197.ngrok-free.app/auth', {
+		  const response = await axios.post('https://c06e-77-238-232-197.ngrok-free.app/auth', {
 			login: login.value,
 			password: password.value,
 		  });
   
 		  if (response.status === 200) {
 			isAuthenticated.value = true;
-			getDishes();
 		  } else {
 			authError.value = true;
 		  }
@@ -91,7 +88,7 @@
   
 	  const orderDish = async (dish: Dish) => {
 		try {
-		  await axios.post('https://65eb-77-238-232-197.ngrok-free.app/notify', {
+		  await axios.post('https://c06e-77-238-232-197.ngrok-free.app/notify', {
 			dish_name: dish.name,
 			dish_price: dish.price,
 		  });
